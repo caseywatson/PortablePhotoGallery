@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure", "Azure", "{0C55CED7-222F-455C-A4C5-2E232E0B41D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aws", "Aws", "{A7FA2960-E66E-464A-9E4F-C5EC3544A5EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortablePhotoGallery.Web", "PortablePhotoGallery.Web\PortablePhotoGallery.Web.csproj", "{F4C6D45F-F0FC-4244-85A4-0986EA0F3F0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortablePhotoGallery.Shared", "PortablePhotoGallery.Interfaces\PortablePhotoGallery.Shared.csproj", "{3AACC950-7C0E-4995-A7F4-4B480C94ECA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortablePhotoGallery.Aws", "PortablePhotoGallery.Aws\PortablePhotoGallery.Aws.csproj", "{94093BD1-18EB-4BD6-8EBD-DF3E3E034AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortablePhotoGallery.Azure", "PortablePhotoGallery.Azure\PortablePhotoGallery.Azure.csproj", "{00CD6041-6BE0-4390-9B29-341ADDCBE119}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4C6D45F-F0FC-4244-85A4-0986EA0F3F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C6D45F-F0FC-4244-85A4-0986EA0F3F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C6D45F-F0FC-4244-85A4-0986EA0F3F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C6D45F-F0FC-4244-85A4-0986EA0F3F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AACC950-7C0E-4995-A7F4-4B480C94ECA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AACC950-7C0E-4995-A7F4-4B480C94ECA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AACC950-7C0E-4995-A7F4-4B480C94ECA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AACC950-7C0E-4995-A7F4-4B480C94ECA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94093BD1-18EB-4BD6-8EBD-DF3E3E034AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94093BD1-18EB-4BD6-8EBD-DF3E3E034AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94093BD1-18EB-4BD6-8EBD-DF3E3E034AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94093BD1-18EB-4BD6-8EBD-DF3E3E034AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00CD6041-6BE0-4390-9B29-341ADDCBE119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00CD6041-6BE0-4390-9B29-341ADDCBE119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00CD6041-6BE0-4390-9B29-341ADDCBE119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00CD6041-6BE0-4390-9B29-341ADDCBE119}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{94093BD1-18EB-4BD6-8EBD-DF3E3E034AFB} = {A7FA2960-E66E-464A-9E4F-C5EC3544A5EF}
+		{00CD6041-6BE0-4390-9B29-341ADDCBE119} = {0C55CED7-222F-455C-A4C5-2E232E0B41D0}
+	EndGlobalSection
+EndGlobal
