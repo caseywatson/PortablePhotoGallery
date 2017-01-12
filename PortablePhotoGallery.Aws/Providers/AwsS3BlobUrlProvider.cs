@@ -12,9 +12,8 @@ namespace PortablePhotoGallery.Aws.Providers
     {
         private readonly IAwsConfiguration awsConfiguration;
         private readonly IAwsRegionEndpointProvider endpointProvider;
-        private readonly IBlobUrlProviderConfiguration providerConfiguration;
-
         private readonly Lazy<AmazonS3Client> lazyS3Client;
+        private readonly IBlobUrlProviderConfiguration providerConfiguration;
 
         public AwsS3BlobUrlProvider(IAwsConfiguration awsConfiguration,
                                     IAwsRegionEndpointProvider endpointProvider,

@@ -23,26 +23,26 @@ namespace PortablePhotoGallery.Shared.Providers
             if (string.IsNullOrEmpty(photoId))
                 throw new ArgumentNullException(nameof(photoId));
 
-            return blobRepository.DownloadBlobAsync(configuration.PhotosContainerName, photoId);
+            return blobRepository.DownloadBlobAsync(configuration.PhotoContainerName, photoId);
         }
 
         public interface IConfiguration
         {
-            string PhotosContainerName { get; }
+            string PhotoContainerName { get; }
         }
 
         public class LocalConfiguration : IConfiguration
         {
             public LocalConfiguration()
             {
-                PhotosContainerName = GetPhotosContainerName();
+                PhotoContainerName = GetPhotoContainerName();
             }
 
-            public string PhotosContainerName { get; }
+            public string PhotoContainerName { get; }
 
-            private string GetPhotosContainerName()
+            private string GetPhotoContainerName()
             {
-                return (ConfigurationManager.AppSettings[nameof(PhotosContainerName)] ??
+                return (ConfigurationManager.AppSettings[nameof(PhotoContainerName)] ??
                         "photos");
             }
         }

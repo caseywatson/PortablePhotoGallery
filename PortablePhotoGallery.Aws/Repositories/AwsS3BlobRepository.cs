@@ -15,7 +15,6 @@ namespace PortablePhotoGallery.Aws.Repositories
     {
         private readonly IAwsConfiguration awsConfiguration;
         private readonly IAwsRegionEndpointProvider endpointProvider;
-
         private readonly Lazy<AmazonS3Client> lazyS3Client;
 
         public AwsS3BlobRepository(IAwsConfiguration awsConfiguration,

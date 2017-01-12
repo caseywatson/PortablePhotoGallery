@@ -17,9 +17,8 @@ namespace PortablePhotoGallery.Aws.Providers
     {
         private readonly IAwsConfiguration awsConfiguration;
         private readonly IAwsRegionEndpointProvider endpointProvider;
-        private readonly IConfiguration providerConfiguration;
-
         private readonly Lazy<AmazonSimpleDBClient> lazySimpleDbClient;
+        private readonly IConfiguration providerConfiguration;
 
         public AwsSimpleDbPhotoMetadataProvider(IAwsConfiguration awsConfiguration,
                                                 IAwsRegionEndpointProvider endpointProvider,
@@ -35,7 +34,8 @@ namespace PortablePhotoGallery.Aws.Providers
         public async Task<IEnumerable<PhotoMetadata>> GetAllPhotoMetadataAsync()
         {
             var selectRequest = new SelectRequest(
-                $"SELECT * FROM '{providerConfiguration.AllPhotosMetadataDomainName}'", true);
+                $"SELECT * FROM '{providerConfiguration.PhotoMetadataDomainName}'",
+                true);
 
             var selectResult = await lazySimpleDbClient.Value.SelectAsync(selectRequest);
 
@@ -47,7 +47,11 @@ namespace PortablePhotoGallery.Aws.Providers
             if (string.IsNullOrEmpty(userId))
                 throw new ArgumentNullException(nameof(userId));
 
-            var selectRequest = new SelectRequest($"SELECT * FROM '{userId}'", true);
+            var selectRequest = new SelectRequest(
+                $"SELECT * FROM '{providerConfiguration.PhotoMetadataDomainName}' " +
+                $"WHERE UserId = '{userId}'", 
+                true);
+
             var selectResult = await lazySimpleDbClient.Value.SelectAsync(selectRequest);
 
             return selectResult.Items.Select(i => i.ToPhotoMetadata());
@@ -59,7 +63,7 @@ namespace PortablePhotoGallery.Aws.Providers
                 throw new ArgumentNullException(nameof(photoId));
 
             var getRequest = new GetAttributesRequest(
-                providerConfiguration.AllPhotosMetadataDomainName, photoId);
+                providerConfiguration.PhotoMetadataDomainName, photoId);
 
             var getResult = await lazySimpleDbClient.Value.GetAttributesAsync(getRequest);
 
@@ -84,22 +88,22 @@ namespace PortablePhotoGallery.Aws.Providers
 
         public interface IConfiguration
         {
-            string AllPhotosMetadataDomainName { get; }
+            string PhotoMetadataDomainName { get; }
         }
 
         public class LocalConfiguration : IConfiguration
         {
             public LocalConfiguration()
             {
-                AllPhotosMetadataDomainName = GetAllPhotosMetadataDomainName();
+                PhotoMetadataDomainName = GetPhotoMetadataDomainName();
             }
 
-            public string AllPhotosMetadataDomainName { get; }
+            public string PhotoMetadataDomainName { get; }
 
-            private string GetAllPhotosMetadataDomainName()
+            private string GetPhotoMetadataDomainName()
             {
-                return (ConfigurationManager.AppSettings[nameof(AllPhotosMetadataDomainName)] ??
-                        "all-photos");
+                return (ConfigurationManager.AppSettings[nameof(PhotoMetadataDomainName)] ??
+                        "photo-metadata");
             }
         }
     }

@@ -14,11 +14,11 @@ namespace PortablePhotoGallery.Azure.Configuration
 
         private string GetStorageConnectionString()
         {
-            const string connectionStringKey = nameof(StorageConnectionString);
-            var connectionString = ConfigurationManager.ConnectionStrings[connectionStringKey];
+            const string key = nameof(StorageConnectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings[key];
 
             if (string.IsNullOrEmpty(connectionString?.ConnectionString))
-                throw new ConfigurationErrorsException($"[{connectionStringKey}] not configured.");
+                throw new ConfigurationErrorsException($"[{key}] not configured.");
 
             return connectionString.ConnectionString;
         }

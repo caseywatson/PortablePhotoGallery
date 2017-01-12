@@ -34,7 +34,9 @@ namespace PortablePhotoGallery.Azure.Providers
         public async Task<IEnumerable<PhotoMetadata>> GetAllPhotoMetadataAsync()
         {
             var photoMetadataList = new List<PhotoMetadata>();
-            var table = lazyCloudTableClient.Value.GetTableReference(providerConfiguration.PhotoMetadataTableName);
+
+            var table = lazyCloudTableClient.Value.GetTableReference(
+                providerConfiguration.PhotoMetadataTableName);
 
             if (await table.ExistsAsync())
             {
@@ -54,7 +56,9 @@ namespace PortablePhotoGallery.Azure.Providers
                 throw new ArgumentNullException(nameof(userId));
 
             var photoMetadataList = new List<PhotoMetadata>();
-            var table = lazyCloudTableClient.Value.GetTableReference(providerConfiguration.PhotoMetadataTableName);
+
+            var table = lazyCloudTableClient.Value.GetTableReference(
+                providerConfiguration.PhotoMetadataTableName);
 
             if (await table.ExistsAsync())
             {
@@ -72,7 +76,8 @@ namespace PortablePhotoGallery.Azure.Providers
             if (string.IsNullOrEmpty(photoId))
                 throw new ArgumentNullException(nameof(photoId));
 
-            var table = lazyCloudTableClient.Value.GetTableReference(providerConfiguration.PhotoMetadataTableName);
+            var table = lazyCloudTableClient.Value.GetTableReference(
+                providerConfiguration.PhotoMetadataTableName);
 
             if (await table.ExistsAsync())
             {
@@ -84,6 +89,7 @@ namespace PortablePhotoGallery.Azure.Providers
                 if (retrieveResult.Result != null)
                     return (retrieveResult.Result as PhotoMetadata);
             }
+
             return null;
         }
 

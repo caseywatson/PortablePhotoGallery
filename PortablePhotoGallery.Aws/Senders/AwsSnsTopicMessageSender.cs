@@ -13,7 +13,6 @@ namespace PortablePhotoGallery.Aws.Senders
     {
         private readonly IAwsConfiguration awsConfiguration;
         private readonly IAwsRegionEndpointProvider endpointProvider;
-
         private readonly Lazy<AmazonSimpleNotificationServiceClient> lazySnsClient;
         private readonly IConfiguration senderConfiguration;
 
